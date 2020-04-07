@@ -29,7 +29,7 @@ Things you may want to cover:
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
+|name|string|null: false|
 ### Association
 - has_many :messages
 - has_many :groups, through:  :authorizations
@@ -38,8 +38,7 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null :false|
-|user_id|intedger|null :false, foreign_key: true|
+|name|string|null :false|
 ### Association
 - has_many :users, through:  :authorizations
 - has_many :authorizations
