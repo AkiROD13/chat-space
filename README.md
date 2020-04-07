@@ -31,7 +31,7 @@ Things you may want to cover:
 |password|string|null: false|
 |username|string|null: false|
 ### Association
-- belongs_to :message
+- has_many :messages
 - has_many :groups, through:  :authorizations
 - has_many :authorizations
 
@@ -54,7 +54,7 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
-- has_many :users
+- belongs_to :user
 - berongs_to :group
 
 ## authorizationsテーブル
