@@ -22,3 +22,53 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# char-space DB設計
+## usersテーブル
+|Culumn|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|username|string|null: false|
+|groupname|string|null: false|
+### Association
+- has_many :messages
+- has_many :groups
+
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|groupname|string|null :false|
+|user_id|intedger|null :false, foreign_key: true|
+### Association
+- has_many :users
+- berongs_to :message
+
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text||
+|image|text||
+|postedtime|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+### Association
+- has_many :users
+- berongs_to :group
+
+## tagsテーブル
+|Column|Type|options|
+|------|----|-------|
+### Association
+has_many: groups_tags
+has_many: groups, through:  :groups_tags
+
+## groups_tagsテーブル
+|Column|type|Options|
+|------|----|-------|
+|groupname|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|tag_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :group
+- belongs_to :tag
